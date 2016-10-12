@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<properties/>
+		<struct>
+			<and abstract="true" mandatory="true" name="MobilePhone">
+				<description>
+					
+				</description>
+				<and mandatory="true" name="Hardware">
+					<description>
+						
+					</description>
+					<feature name="Connector3G">
+						<description>
+							
+						</description>
+					</feature>
+					<feature mandatory="true" name="Screen">
+						<description>
+							
+						</description>
+					</feature>
+					<and mandatory="true" name="Processors">
+						<description>
+							
+						</description>
+						<feature mandatory="true" name="CPU1">
+							<description>
+								
+							</description>
+						</feature>
+						<feature name="CPU2">
+							<description>
+								
+							</description>
+						</feature>
+						<feature name="GPU">
+							<description>
+								
+							</description>
+						</feature>
+					</and>
+					<feature mandatory="true" name="RAM">
+						<description>
+							
+						</description>
+					</feature>
+					<feature name="GPS">
+						<description>
+							
+						</description>
+					</feature>
+				</and>
+				<feature name="VideoCall">
+					<description>
+						
+					</description>
+				</feature>
+				<feature name="TaskScheduler">
+					<description>
+						
+					</description>
+				</feature>
+				<or name="Games">
+					<description>
+						
+					</description>
+					<feature mandatory="true" name="Chess">
+						<description>
+							
+						</description>
+					</feature>
+					<feature mandatory="true" name="CarRace3D">
+						<description>
+							
+						</description>
+					</feature>
+					<feature mandatory="true" name="Tetris">
+						<description>
+							
+						</description>
+					</feature>
+				</or>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>CPU2</var>
+					<var>TaskScheduler</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>CarRace3D</var>
+					<var>GPU</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>

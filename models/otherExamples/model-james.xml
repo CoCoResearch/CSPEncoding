@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<properties/>
+		<struct>
+			<and abstract="true" mandatory="true" name="JAMES">
+				<description>
+					
+				</description>
+				<alt mandatory="true" name="UserManagement">
+					<description>
+						
+					</description>
+					<feature mandatory="true" name="DB">
+						<description>
+							
+						</description>
+					</feature>
+					<feature mandatory="true" name="LDAP">
+						<description>
+							
+						</description>
+					</feature>
+				</alt>
+				<feature name="WSInterface">
+					<description>
+						
+					</description>
+				</feature>
+				<or mandatory="true" name="GUI">
+					<description>
+						
+					</description>
+					<feature mandatory="true" name="PC">
+						<description>
+							
+						</description>
+					</feature>
+					<feature mandatory="true" name="PDA">
+						<description>
+							
+						</description>
+					</feature>
+				</or>
+				<feature mandatory="true" name="Core">
+					<description>
+						
+					</description>
+				</feature>
+				<or mandatory="true" name="Modules">
+					<description>
+						
+					</description>
+					<feature mandatory="true" name="Calendar">
+						<description>
+							
+						</description>
+					</feature>
+					<feature mandatory="true" name="Forum">
+						<description>
+							
+						</description>
+					</feature>
+					<feature mandatory="true" name="CongressManagement">
+						<description>
+							
+						</description>
+					</feature>
+					<feature mandatory="true" name="Repository">
+						<description>
+							
+						</description>
+					</feature>
+				</or>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>Repository</var>
+					<not>
+						<var>PDA</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>CongressManagement</var>
+					<var>PDA</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>

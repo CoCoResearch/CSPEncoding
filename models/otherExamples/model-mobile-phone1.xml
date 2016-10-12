@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<properties/>
+		<struct>
+			<and abstract="true" mandatory="true" name="MobilePhone">
+				<description>
+					
+				</description>
+				<and mandatory="true" name="UtilityFunction">
+					<description>
+						
+					</description>
+					<or mandatory="true" name="Calls">
+						<description>
+							
+						</description>
+						<feature mandatory="true" name="Voice">
+							<description>
+								
+							</description>
+						</feature>
+						<feature mandatory="true" name="Data">
+							<description>
+								
+							</description>
+						</feature>
+					</or>
+					<or mandatory="true" name="Messaging">
+						<description>
+							
+						</description>
+						<feature mandatory="true" name="SMS">
+							<description>
+								
+							</description>
+						</feature>
+						<feature mandatory="true" name="MMS">
+							<description>
+								
+							</description>
+						</feature>
+					</or>
+					<feature name="Games">
+						<description>
+							
+						</description>
+					</feature>
+					<feature mandatory="true" name="Alarm">
+						<description>
+							
+						</description>
+					</feature>
+				</and>
+				<and mandatory="true" name="Settings">
+					<description>
+						
+					</description>
+					<feature name="JavaSupport">
+						<description>
+							
+						</description>
+					</feature>
+					<alt mandatory="true" name="OS">
+						<description>
+							
+						</description>
+						<feature mandatory="true" name="Symbian">
+							<description>
+								
+							</description>
+						</feature>
+						<feature mandatory="true" name="WinCE">
+							<description>
+								
+							</description>
+						</feature>
+					</alt>
+				</and>
+				<or mandatory="true" name="Connectivity">
+					<description>
+						
+					</description>
+					<feature mandatory="true" name="Bluetooth">
+						<description>
+							
+						</description>
+					</feature>
+					<feature mandatory="true" name="Wifi">
+						<description>
+							
+						</description>
+					</feature>
+				</or>
+			</and>
+		</struct>
+		<constraints/>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
