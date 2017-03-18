@@ -3,3 +3,4 @@
 .settings/org.eclipse.jdt.core.prefs
 bin/pkg/arithmetic/SmallTestArithmetic.class
 bin/pkg/logic/SmallTestLogic.class
+/bin/
