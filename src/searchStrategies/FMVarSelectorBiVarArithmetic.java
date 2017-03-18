@@ -4,7 +4,6 @@ import org.chocosolver.solver.constraints.Propagator;
 import org.chocosolver.solver.search.strategy.selectors.VariableEvaluator;
 import org.chocosolver.solver.search.strategy.selectors.VariableSelector;
 import org.chocosolver.solver.variables.IntVar;
-import org.chocosolver.solver.variables.Variable;
 
 public class FMVarSelectorBiVarArithmetic implements VariableSelector<IntVar>, VariableEvaluator<IntVar> {
 	

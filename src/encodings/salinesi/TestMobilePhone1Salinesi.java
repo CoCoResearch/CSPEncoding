@@ -1,7 +1,6 @@
 
 package encodings.salinesi;
 
-import java.util.HashMap;
 import org.chocosolver.solver.Solver;
 import org.chocosolver.solver.constraints.IntConstraintFactory;
 import org.chocosolver.solver.constraints.LogicalConstraintFactory;
