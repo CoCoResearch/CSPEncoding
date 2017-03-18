@@ -1,13 +1,44 @@
 package searchStrategies;
 
 public class Utilities {
-	public static final String PARENT_CHILD_CONST = "PARENT_CHILD_CONST";
+	
+	/**
+	 * Mandatory tree constraint constant
+	 */
 	public static final String MANDATORY_TC = "MANDATORY_TC";
+	
+	/**
+	 * Optional tree constraint constant
+	 */
 	public static final String OPTIONAL_TC = "OPTIONAL_TC";
-	public static final String REQUIRES_CTC = "REQUIRES_CTC";
-	public static final String EXCLUDES_CTC = "EXCLUDES_CTC";
-	public static final String REQUIRES_CMC = "REQUIRES_CMC";
-	public static final String EXCLUDES_CMC = "EXCLUDES_CMC";
+	
+	/**
+	 * Alternative (xor) tree constraint constant
+	 */
 	public static final String XOR_TC = "XOR_TC";
+	
+	/**
+	 * Or tree constraint constant
+	 */
 	public static final String OR_TC = "OR_TC";
+	
+	/**
+	 * Requires cross-tree constraint constant
+	 */
+	public static final String REQUIRES_CTC = "REQUIRES_CTC";
+	
+	/**
+	 * Excludes cross-tree constraint constant
+	 */
+	public static final String EXCLUDES_CTC = "EXCLUDES_CTC";
+	
+	/**
+	 * Requires cross-model constraint constant
+	 */
+	public static final String REQUIRES_CMC = "REQUIRES_CMC";
+	
+	/**
+	 * Excludes cross-model constraint constant
+	 */
+	public static final String EXCLUDES_CMC = "EXCLUDES_CMC";
 }

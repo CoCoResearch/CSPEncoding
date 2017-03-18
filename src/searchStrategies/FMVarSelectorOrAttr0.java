@@ -6,7 +6,8 @@ import org.chocosolver.solver.search.strategy.selectors.VariableSelector;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.Variable;
 
-public class FMVarSelectorAlternativeAttr0 implements VariableSelector<IntVar>, VariableEvaluator<IntVar> {
+public class FMVarSelectorOrAttr0 implements VariableSelector<IntVar>, VariableEvaluator<IntVar> {
+	
 	@Override
 	public double evaluate(IntVar variable) {
 		return variable.getPropagators().length;
@@ -23,6 +24,12 @@ public class FMVarSelectorAlternativeAttr0 implements VariableSelector<IntVar>, 
 		return variable;
 	}
 	
+	/**
+	 * The method returns the variable involved in the first or relation,
+	 * where features have attributes related to the Attribute 0 type. The
+	 * variable has the lowest upper bound of the group. Otherwise, it 
+	 * returns null.
+	 */
 	private IntVar getVarsInOrAlternativeConstraints(IntVar[] variables){
 		IntVar variable = null;
 		boolean exists = false;
@@ -63,6 +70,10 @@ public class FMVarSelectorAlternativeAttr0 implements VariableSelector<IntVar>, 
 		return variable;
 	}
 	
+	/**
+	 * Gets the variable with the smallest upper bound from the
+	 * variables given by parameter.
+	 */
 	private Variable getVariableSmallestValue(Variable[] variables){
 		Variable smallest = null;
 		int ub = -1;

@@ -6,13 +6,18 @@ import org.chocosolver.solver.search.strategy.selectors.VariableSelector;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.Variable;
 
-public class FMVarSelectorMoreConstsInstant implements VariableSelector<IntVar>, VariableEvaluator<IntVar> {
+public class FMVarSelectorMorePercInstVars implements VariableSelector<IntVar>, VariableEvaluator<IntVar> {
 	
 	@Override
 	public double evaluate(IntVar variable) {
 		return variable.getPropagators().length;
 	}
 
+	/**
+	 * The method returns the variable with the highest percentage of  
+	 * instantiated variables in its involved constraints. Otherwise, 
+	 * it returns null.
+	 */
 	@Override
 	public IntVar getVariable(IntVar[] variables) {
 		IntVar variable = null;

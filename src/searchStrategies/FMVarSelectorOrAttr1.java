@@ -6,7 +6,8 @@ import org.chocosolver.solver.search.strategy.selectors.VariableSelector;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.Variable;
 
-public class FMVarSelectorAlternativeAttr1 implements VariableSelector<IntVar>, VariableEvaluator<IntVar> {
+public class FMVarSelectorOrAttr1 implements VariableSelector<IntVar>, VariableEvaluator<IntVar> {
+	
 	@Override
 	public double evaluate(IntVar variable) {
 		return variable.getPropagators().length;
@@ -23,6 +24,12 @@ public class FMVarSelectorAlternativeAttr1 implements VariableSelector<IntVar>, 
 		return variable;
 	}
 	
+	/**
+	 * The method returns the variable involved in the first or relation,
+	 * where features have attributes related to the Attribute 1 type. The
+	 * variable has the highest upper bound of the group. Otherwise, it 
+	 * returns null.
+	 */
 	private IntVar getVarsInOrAlternativeConstraints(IntVar[] variables){
 		IntVar variable = null;
 		boolean exists = false;
@@ -52,7 +59,7 @@ public class FMVarSelectorAlternativeAttr1 implements VariableSelector<IntVar>, 
 				}
 				
 				if(isOr && hasFeatureAttributes){
-					variable = (IntVar) getVariableSmallestValue(orVars);
+					variable = (IntVar) getVariableHighestValue(orVars);
 					if(variable != null){
 						exists = true;
 					}
@@ -63,7 +70,11 @@ public class FMVarSelectorAlternativeAttr1 implements VariableSelector<IntVar>, 
 		return variable;
 	}
 	
-	private Variable getVariableSmallestValue(Variable[] variables){
+	/**
+	 * Gets the variable with the highest upper bound from the
+	 * variables given by parameter.
+	 */
+	private Variable getVariableHighestValue(Variable[] variables){
 		Variable highest = null;
 		int ub = -1;
 		
