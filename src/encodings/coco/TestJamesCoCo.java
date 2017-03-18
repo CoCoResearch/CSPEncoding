@@ -1,5 +1,5 @@
 
-package otherExamples.benavides;
+package encodings.coco;
 
 import java.util.HashMap;
 import org.chocosolver.solver.Solver;
@@ -12,7 +12,7 @@ import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.VariableFactory;
 
-public class TestJamesBenavides {
+public class TestJamesCoCo {
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
 		
@@ -42,11 +42,10 @@ public class TestJamesBenavides {
 		//--------------------------------------------
 		//Tree Constraint
 		//--------------------------------------------
-		solver.post(IntConstraintFactory.arithm(JAMES_JAMES, "=", JAMES_UserManagement));
-		SatFactory.addClauses(LogOp.implies(JAMES_WSInterface, JAMES_JAMES), solver);
-		solver.post(IntConstraintFactory.arithm(JAMES_JAMES, "=", JAMES_GUI));
-		solver.post(IntConstraintFactory.arithm(JAMES_JAMES, "=", JAMES_Core));
-		solver.post(IntConstraintFactory.arithm(JAMES_JAMES, "=", JAMES_Modules));
+		SatFactory.addClauses(LogOp.implies(JAMES_JAMES, JAMES_UserManagement), solver);
+		SatFactory.addClauses(LogOp.implies(JAMES_JAMES, JAMES_GUI), solver);
+		SatFactory.addClauses(LogOp.implies(JAMES_JAMES, JAMES_Core), solver);
+		SatFactory.addClauses(LogOp.implies(JAMES_JAMES, JAMES_Modules), solver);
 		BoolVar[] varsXorJAMES_UserManagement = new BoolVar[2];
 		varsXorJAMES_UserManagement[0] = JAMES_DB;
 		varsXorJAMES_UserManagement[1] = JAMES_LDAP;
@@ -91,6 +90,7 @@ public class TestJamesBenavides {
 		
 		SatFactory.addClauses(LogOp.implies(JAMES_Repository, LogOp.nor(JAMES_PDA)), solver);
 		SatFactory.addClauses(LogOp.implies(JAMES_CongressManagement, JAMES_PDA), solver);
+		
 		
 		//Chatterbox.showSolutions(solver);
 		Chatterbox.showStatistics(solver);

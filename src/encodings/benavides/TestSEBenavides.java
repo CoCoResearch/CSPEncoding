@@ -1,5 +1,5 @@
 
-package otherExamples.benavides;
+package encodings.benavides;
 
 import java.util.HashMap;
 import org.chocosolver.solver.Solver;
