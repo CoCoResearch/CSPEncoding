@@ -1,4 +1,4 @@
-package otherExamples.searchStrategies;
+package searchStrategies;
 
 import org.chocosolver.solver.constraints.Propagator;
 import org.chocosolver.solver.search.strategy.selectors.VariableEvaluator;
@@ -19,32 +19,37 @@ public class FMVarSelectorMoreConstsInstant implements VariableSelector<IntVar>,
 		
 		if(variables.length > 0) {
 			int globalMoreInstantiatedPerc = -1;
-			
+
 			for(int i = 0; i < variables.length; i++) {
-				int varsLength = 0;
-				int instantVarsLength = 0;
-				int localMoreInstantiatedPerc = 0;
-				Propagator[] propagators = variables[i].getPropagators();
-				
-				for(int j = 0; j < propagators.length; j++) {
-					varsLength += propagators[j].getNbVars();
-					Variable[] vars = propagators[j].getVars();
+				if(!variables[i].isInstantiated()) {
+					int varsLength = 0;
+					int instantVarsLength = 0;
+					int localMoreInstantiatedPerc = 0;
+					Propagator[] propagators = variables[i].getPropagators();
 					
-					for(int k = 0; k < vars.length; k++) {
-						if(vars[k].isInstantiated()) {
-							instantVarsLength++;
+					for(int j = 0; j < propagators.length; j++) {
+						varsLength += propagators[j].getVars().length;
+						Variable[] vars = propagators[j].getVars();
+						
+						for(int k = 0; k < vars.length; k++) {
+							if(vars[k].isInstantiated()) {
+								instantVarsLength++;
+							}
 						}
 					}
-				}
-				
-				localMoreInstantiatedPerc = instantVarsLength/varsLength;
-				
-				if(localMoreInstantiatedPerc > globalMoreInstantiatedPerc) {
-					variable = variables[i];
+					
+					if(varsLength > 0) {
+						localMoreInstantiatedPerc = instantVarsLength/varsLength;
+						if(localMoreInstantiatedPerc > globalMoreInstantiatedPerc) {
+							variable = variables[i];
+						}
+					}
+					else {
+						variable = variables[i];
+					}	
 				}
 			}	
 		}
-		
 		return variable;
 	}
 }

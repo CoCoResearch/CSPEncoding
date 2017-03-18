@@ -1,5 +1,5 @@
 
-package otherExamples.coco;
+package encodings.coco;
 
 import java.util.HashMap;
 import org.chocosolver.solver.Solver;
