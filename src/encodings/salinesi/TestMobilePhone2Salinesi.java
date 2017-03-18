@@ -1,5 +1,5 @@
 
-package otherExamples.salinesi;
+package encodings.salinesi;
 
 import java.util.HashMap;
 import org.chocosolver.solver.Solver;
