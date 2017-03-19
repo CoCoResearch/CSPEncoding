@@ -1587,7 +1587,7 @@ public class CoCoModelDefault12 {
 		IntVar totalAtribute1 = VariableFactory.bounded("totalAtribute1", -1000000, 0, solver);
 		solver.post(IntConstraintFactory.sum(varsAtribute1, totalAtribute1));
 		
-		//SMF.limitSolution(solver, 10);
+		SMF.limitSolution(solver, 1000);
 		//Chatterbox.showSolutions(solver);
 		solver.findParetoFront(ResolutionPolicy.MINIMIZE, totalAtribute0, totalAtribute1);
 		Chatterbox.printStatistics(solver);
