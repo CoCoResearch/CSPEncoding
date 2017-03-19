@@ -24,7 +24,7 @@ import searchStrategies.FMVarSelectorBiVarArithmetic;
 import searchStrategies.FMVarSelectorMorePercInstVars;
 import searchStrategies.Utilities;
 
-public class CoCoModelHeuristic1_31 {
+public class CoCoModelHeuristic2_31 {
 	public static void main(String[] args) {
 		Solver solver = new Solver();
 		
