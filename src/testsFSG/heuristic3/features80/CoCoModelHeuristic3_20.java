@@ -1,5 +1,5 @@
 
-package testsFSG.heuristic2.features80;
+package testsFSG.heuristic3.features80;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,9 +24,11 @@ import org.chocosolver.solver.variables.VariableFactory;
 
 import searchStrategies.FMVarSelectorBiVarArithmetic;
 import searchStrategies.FMVarSelectorMorePercInstVars;
+import searchStrategies.FMVarSelectorOrAttr0;
+import searchStrategies.FMVarSelectorOrAttr1;
 import searchStrategies.Utilities;
 
-public class CoCoModelHeuristic2_20 {
+public class CoCoModelHeuristic3_20 {
 	public static void main(String[] args) {
 		Solver solver = new Solver();
 		
@@ -2383,9 +2385,11 @@ public class CoCoModelHeuristic2_20 {
 		totalVars[1] = totalAtribute1;
 		
 		IntStrategy strategy1 = IntStrategyFactory.custom(new FMVarSelectorBiVarArithmetic(), IntStrategyFactory.max_value_selector(), featureVars);
-		IntStrategy strategy2 = IntStrategyFactory.custom(IntStrategyFactory.minDomainSize_var_selector(), new IntDomainMin(), attributeVars);
-		IntStrategy strategy3 = IntStrategyFactory.custom(IntStrategyFactory.minDomainSize_var_selector(), new IntDomainMin(), totalVars);
-		solver.set(IntStrategyFactory.sequencer(strategy1, IntStrategyFactory.domOverWDeg(featureVars, 1)), strategy2, strategy3);
+		IntStrategy strategy2 = IntStrategyFactory.custom(new FMVarSelectorOrAttr0(), IntStrategyFactory.max_value_selector(), featureVars);
+		IntStrategy strategy3 = IntStrategyFactory.custom(new FMVarSelectorOrAttr1(), IntStrategyFactory.max_value_selector(), featureVars);
+		IntStrategy strategy4 = IntStrategyFactory.custom(IntStrategyFactory.minDomainSize_var_selector(), new IntDomainMin(), attributeVars);
+		IntStrategy strategy5 = IntStrategyFactory.custom(IntStrategyFactory.minDomainSize_var_selector(), new IntDomainMin(), totalVars);
+		solver.set(IntStrategyFactory.sequencer(strategy1, strategy2, strategy3, IntStrategyFactory.domOverWDeg(featureVars, 1)), strategy4, strategy5);
 		
 		SearchMonitorFactory.limitSolution(solver, 1000);
 		//Chatterbox.showSolutions(solver);
