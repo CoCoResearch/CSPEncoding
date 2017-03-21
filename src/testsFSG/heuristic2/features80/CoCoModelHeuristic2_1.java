@@ -1,5 +1,5 @@
 
-package testsFSG.heuristic1.features80;
+package testsFSG.heuristic2.features80;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,10 +22,11 @@ import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.Variable;
 import org.chocosolver.solver.variables.VariableFactory;
 
+import searchStrategies.FMVarSelectorBiVarArithmetic;
 import searchStrategies.FMVarSelectorMorePercInstVars;
 import searchStrategies.Utilities;
 
-public class CoCoModelDefault1 {
+public class CoCoModelHeuristic2_1 {
 	public static void main(String[] args) {
 		Solver solver = new Solver();
 		
@@ -859,7 +860,7 @@ public class CoCoModelDefault1 {
 		totalVars[0] = totalAtribute0;
 		totalVars[1] = totalAtribute1;
 		
-		IntStrategy strategy1 = IntStrategyFactory.custom(new FMVarSelectorMorePercInstVars(), IntStrategyFactory.max_value_selector(), featureVars);
+		IntStrategy strategy1 = IntStrategyFactory.custom(new FMVarSelectorBiVarArithmetic(), IntStrategyFactory.max_value_selector(), featureVars);
 		IntStrategy strategy2 = IntStrategyFactory.custom(IntStrategyFactory.minDomainSize_var_selector(), new IntDomainMin(), attributeVars);
 		IntStrategy strategy3 = IntStrategyFactory.custom(IntStrategyFactory.minDomainSize_var_selector(), new IntDomainMin(), totalVars);
 		solver.set(IntStrategyFactory.sequencer(strategy1, IntStrategyFactory.domOverWDeg(featureVars, 1)), strategy2, strategy3);

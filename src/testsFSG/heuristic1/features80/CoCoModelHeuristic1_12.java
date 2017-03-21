@@ -25,7 +25,7 @@ import org.chocosolver.solver.variables.VariableFactory;
 import searchStrategies.FMVarSelectorMorePercInstVars;
 import searchStrategies.Utilities;
 
-public class CoCoModelDefault12 {
+public class CoCoModelHeuristic1_12 {
 	public static void main(String[] args) {
 		Solver solver = new Solver();
 		
