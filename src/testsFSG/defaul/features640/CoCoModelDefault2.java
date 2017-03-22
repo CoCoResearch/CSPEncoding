@@ -12,6 +12,7 @@ import org.chocosolver.solver.constraints.LogicalConstraintFactory;
 import org.chocosolver.solver.constraints.SatFactory;
 import org.chocosolver.solver.constraints.nary.cnf.LogOp;
 import org.chocosolver.solver.search.loop.monitors.SMF;
+import org.chocosolver.solver.search.loop.monitors.SearchMonitorFactory;
 import org.chocosolver.solver.search.strategy.IntStrategyFactory;
 import org.chocosolver.solver.search.strategy.strategy.IntStrategy;
 import org.chocosolver.solver.trace.Chatterbox;
@@ -663,8 +664,8 @@ public class CoCoModelDefault2 {
 	private static BoolVar root1_F482;
 	private static BoolVar root1_F483;
 	private static BoolVar root1_F11;
-		private static HashMap<String, IntVar> featureAttrAtribute1;
-		private static HashMap<String, IntVar> featureAttrAtribute0;
+	private static HashMap<String, IntVar> featureAttrAtribute1;
+	private static HashMap<String, IntVar> featureAttrAtribute0;
 	
 	public static void main(String[] args) {
 		solver = new Solver();
@@ -3093,7 +3094,7 @@ public class CoCoModelDefault2 {
 		IntVar totalAtribute1 = VariableFactory.bounded("totalAtribute1", -1000000, 0, solver);
 		solver.post(IntConstraintFactory.sum(varsAtribute1, totalAtribute1));
 		
-		//SMF.limitSolution(solver, 10);
+		SearchMonitorFactory.limitSolution(solver, 1000);
 		//Chatterbox.showSolutions(solver);
 		solver.findParetoFront(ResolutionPolicy.MINIMIZE, totalAtribute0, totalAtribute1);
 		Chatterbox.printStatistics(solver);

@@ -12,6 +12,7 @@ import org.chocosolver.solver.constraints.LogicalConstraintFactory;
 import org.chocosolver.solver.constraints.SatFactory;
 import org.chocosolver.solver.constraints.nary.cnf.LogOp;
 import org.chocosolver.solver.search.loop.monitors.SMF;
+import org.chocosolver.solver.search.loop.monitors.SearchMonitorFactory;
 import org.chocosolver.solver.search.strategy.IntStrategyFactory;
 import org.chocosolver.solver.search.strategy.strategy.IntStrategy;
 import org.chocosolver.solver.trace.Chatterbox;
@@ -1303,8 +1304,8 @@ public class CoCoModelDefault12 {
 	private static BoolVar root2_F367;
 	private static BoolVar root2_F368;
 	private static BoolVar root2_F369;
-		private static HashMap<String, IntVar> featureAttrAtribute1;
-		private static HashMap<String, IntVar> featureAttrAtribute0;
+	private static HashMap<String, IntVar> featureAttrAtribute1;
+	private static HashMap<String, IntVar> featureAttrAtribute0;
 	
 	public static void main(String[] args) {
 		solver = new Solver();
@@ -1319,6 +1320,9 @@ public class CoCoModelDefault12 {
 		//Feature Attributes
 		//--------------------------------------------
 		initializeFeatureAttributes();
+		initializeFeatureAttributes2();
+		initializeFeatureAttributes3();
+		initializeFeatureAttributes4();
 		
 		//--------------------------------------------
 		//Tree Constraints
@@ -6327,7 +6331,7 @@ public class CoCoModelDefault12 {
 		IntVar totalAtribute1 = VariableFactory.bounded("totalAtribute1", -1000000, 0, solver);
 		solver.post(IntConstraintFactory.sum(varsAtribute1, totalAtribute1));
 		
-		//SMF.limitSolution(solver, 10);
+		SearchMonitorFactory.limitSolution(solver, 1000);
 		//Chatterbox.showSolutions(solver);
 		solver.findParetoFront(ResolutionPolicy.MINIMIZE, totalAtribute0, totalAtribute1);
 		Chatterbox.printStatistics(solver);
@@ -9601,6 +9605,9 @@ public class CoCoModelDefault12 {
 		featureAttrAtribute0.put("root1_F348", VariableFactory.enumerated("root1_F348Atribute0", new int[]{0, 37}, solver));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root1_F348, "=", 0), IntConstraintFactory.arithm(featureAttrAtribute0.get("root1_F348"), "=", 0));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root1_F348, "=", 1), IntConstraintFactory.arithm(featureAttrAtribute0.get("root1_F348"), "!=", 0));
+	}
+	
+	private static void initializeFeatureAttributes2(){
 		featureAttrAtribute1.put("root1_F349", VariableFactory.enumerated("root1_F349Atribute1", new int[]{0, 72}, solver));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root1_F349, "=", 0), IntConstraintFactory.arithm(featureAttrAtribute1.get("root1_F349"), "=", 0));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root1_F349, "=", 1), IntConstraintFactory.arithm(featureAttrAtribute1.get("root1_F349"), "!=", 0));
@@ -10090,10 +10097,6 @@ public class CoCoModelDefault12 {
 		featureAttrAtribute0.put("root1_F266", VariableFactory.enumerated("root1_F266Atribute0", new int[]{0, 51}, solver));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root1_F266, "=", 0), IntConstraintFactory.arithm(featureAttrAtribute0.get("root1_F266"), "=", 0));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root1_F266, "=", 1), IntConstraintFactory.arithm(featureAttrAtribute0.get("root1_F266"), "!=", 0));
-		
-	}
-	
-	private static void initializeFeatureAttributes2(){
 		featureAttrAtribute1.put("root1_F267", VariableFactory.enumerated("root1_F267Atribute1", new int[]{0, 55}, solver));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root1_F267, "=", 0), IntConstraintFactory.arithm(featureAttrAtribute1.get("root1_F267"), "=", 0));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root1_F267, "=", 1), IntConstraintFactory.arithm(featureAttrAtribute1.get("root1_F267"), "!=", 0));
@@ -11129,6 +11132,9 @@ public class CoCoModelDefault12 {
 		featureAttrAtribute0.put("root2_F287", VariableFactory.enumerated("root2_F287Atribute0", new int[]{0, 78}, solver));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root2_F287, "=", 0), IntConstraintFactory.arithm(featureAttrAtribute0.get("root2_F287"), "=", 0));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root2_F287, "=", 1), IntConstraintFactory.arithm(featureAttrAtribute0.get("root2_F287"), "!=", 0));
+	}
+	
+	private static void initializeFeatureAttributes3(){
 		featureAttrAtribute1.put("root2_F288", VariableFactory.enumerated("root2_F288Atribute1", new int[]{0, 36}, solver));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root2_F288, "=", 0), IntConstraintFactory.arithm(featureAttrAtribute1.get("root2_F288"), "=", 0));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root2_F288, "=", 1), IntConstraintFactory.arithm(featureAttrAtribute1.get("root2_F288"), "!=", 0));
@@ -12501,6 +12507,9 @@ public class CoCoModelDefault12 {
 		featureAttrAtribute0.put("root2_F506", VariableFactory.enumerated("root2_F506Atribute0", new int[]{0, 92}, solver));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root2_F506, "=", 0), IntConstraintFactory.arithm(featureAttrAtribute0.get("root2_F506"), "=", 0));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root2_F506, "=", 1), IntConstraintFactory.arithm(featureAttrAtribute0.get("root2_F506"), "!=", 0));
+	}
+	
+	private static void initializeFeatureAttributes4(){
 		featureAttrAtribute1.put("root2_F507", VariableFactory.enumerated("root2_F507Atribute1", new int[]{0, 71}, solver));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root2_F507, "=", 0), IntConstraintFactory.arithm(featureAttrAtribute1.get("root2_F507"), "=", 0));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root2_F507, "=", 1), IntConstraintFactory.arithm(featureAttrAtribute1.get("root2_F507"), "!=", 0));
@@ -13711,20 +13720,6 @@ public class CoCoModelDefault12 {
 		featureAttrAtribute0.put("root2_F369", VariableFactory.enumerated("root2_F369Atribute0", new int[]{0, 7}, solver));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root2_F369, "=", 0), IntConstraintFactory.arithm(featureAttrAtribute0.get("root2_F369"), "=", 0));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root2_F369, "=", 1), IntConstraintFactory.arithm(featureAttrAtribute0.get("root2_F369"), "!=", 0));
-	}
-	private static IntVar[] getFeatureVars(int contFeatures){
-		IntVar[] featureVars = new IntVar[contFeatures];
-		Variable[] varsSolver = solver.getVars();
-		int index = 0;
-		for(int i = 0; i < varsSolver.length; i++) {
-			Variable current = varsSolver[i];
-			if(current.getName().startsWith("feature_")) {
-				featureVars[index] = (IntVar) current;
-				index++;
-			}
-		}
-		
-		return featureVars;
 	}
 }
 

@@ -1,5 +1,5 @@
 
-package multiModelTests.defaul.features40;
+package testsFSG.defaul.features640;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +21,7 @@ import org.chocosolver.solver.variables.Variable;
 import org.chocosolver.solver.variables.VariableFactory;
 import searchStrategies.Utilities;
 
-public class CoCoModelDefault {
+public class CoCoModelDefault40 {
 	private static Solver solver;
 	private static BoolVar root1_root;
 	private static BoolVar root1_F1;
@@ -3228,6 +3228,7 @@ public class CoCoModelDefault {
 	
 	public static void main(String[] args) {
 		solver = new Solver();
+		int contFeatures = 3200;
 		
 		//--------------------------------------------
 		//Features
@@ -14798,9 +14799,9 @@ public class CoCoModelDefault {
 		Constraint excludesroot4_F85_root4_F85 = IntConstraintFactory.arithm(root4_F85, "+", root4_F253, "<=", 1);
 		excludesroot4_F85_root4_F85.setName(Utilities.EXCLUDES_CTC);
 		solver.post(excludesroot4_F85_root4_F85);
-		Constraint excludesroot4_F43_root4_F43 = IntConstraintFactory.arithm(root4_F43, "+", root4_F224, "<=", 1);
-		excludesroot4_F43_root4_F43.setName(Utilities.EXCLUDES_CTC);
-		solver.post(excludesroot4_F43_root4_F43);
+		Constraint excludesroot4_F43_root4_F224 = IntConstraintFactory.arithm(root4_F43, "+", root4_F224, "<=", 1);
+		excludesroot4_F43_root4_F224.setName(Utilities.EXCLUDES_CTC);
+		solver.post(excludesroot4_F43_root4_F224);
 		Constraint requiresroot4_F197_root4_F261 = IntConstraintFactory.arithm(root4_F197, "<=", root4_F261);
 		requiresroot4_F197_root4_F261.setName(Utilities.REQUIRES_CTC);
 		solver.post(requiresroot4_F197_root4_F261);
@@ -14894,9 +14895,9 @@ public class CoCoModelDefault {
 		Constraint requiresroot4_F438_root4_F308 = IntConstraintFactory.arithm(root4_F438, "<=", root4_F308);
 		requiresroot4_F438_root4_F308.setName(Utilities.REQUIRES_CTC);
 		solver.post(requiresroot4_F438_root4_F308);
-		Constraint excludesroot4_F344_root4_F344 = IntConstraintFactory.arithm(root4_F344, "+", root4_F360, "<=", 1);
-		excludesroot4_F344_root4_F344.setName(Utilities.EXCLUDES_CTC);
-		solver.post(excludesroot4_F344_root4_F344);
+		Constraint excludesroot4_F344_root4_F360 = IntConstraintFactory.arithm(root4_F344, "+", root4_F360, "<=", 1);
+		excludesroot4_F344_root4_F360.setName(Utilities.EXCLUDES_CTC);
+		solver.post(excludesroot4_F344_root4_F360);
 		Constraint excludesroot4_F468_root4_F468 = IntConstraintFactory.arithm(root4_F468, "+", root4_F518, "<=", 1);
 		excludesroot4_F468_root4_F468.setName(Utilities.EXCLUDES_CTC);
 		solver.post(excludesroot4_F468_root4_F468);
@@ -15026,9 +15027,9 @@ public class CoCoModelDefault {
 		Constraint requiresroot5_F408_root5_F517 = IntConstraintFactory.arithm(root5_F408, "<=", root5_F517);
 		requiresroot5_F408_root5_F517.setName(Utilities.REQUIRES_CTC);
 		solver.post(requiresroot5_F408_root5_F517);
-		Constraint excludesroot5_F454_root5_F454 = IntConstraintFactory.arithm(root5_F454, "+", root5_F525, "<=", 1);
-		excludesroot5_F454_root5_F454.setName(Utilities.EXCLUDES_CTC);
-		solver.post(excludesroot5_F454_root5_F454);
+		Constraint excludesroot5_F454_root5_F525 = IntConstraintFactory.arithm(root5_F454, "+", root5_F525, "<=", 1);
+		excludesroot5_F454_root5_F525.setName(Utilities.EXCLUDES_CTC);
+		solver.post(excludesroot5_F454_root5_F525);
 		Constraint excludesroot5_F259_root5_F259 = IntConstraintFactory.arithm(root5_F259, "+", root5_F548, "<=", 1);
 		excludesroot5_F259_root5_F259.setName(Utilities.EXCLUDES_CTC);
 		solver.post(excludesroot5_F259_root5_F259);
@@ -15327,9 +15328,9 @@ public class CoCoModelDefault {
 		Constraint excludesroot4_F80_root4_F80 = IntConstraintFactory.arithm(root4_F80, "+", root3_F12, "<=", 1);
 		excludesroot4_F80_root4_F80.setName(Utilities.EXCLUDES_CMC);
 		solver.post(excludesroot4_F80_root4_F80);
-		Constraint excludesroot1_F605_root1_F605 = IntConstraintFactory.arithm(root1_F605, "+", root2_F377, "<=", 1);
-		excludesroot1_F605_root1_F605.setName(Utilities.EXCLUDES_CMC);
-		solver.post(excludesroot1_F605_root1_F605);
+		Constraint excludesroot1_F605_root2_F377 = IntConstraintFactory.arithm(root1_F605, "+", root2_F377, "<=", 1);
+		excludesroot1_F605_root2_F377.setName(Utilities.EXCLUDES_CMC);
+		solver.post(excludesroot1_F605_root2_F377);
 		Constraint excludesroot2_F121_root2_F121 = IntConstraintFactory.arithm(root2_F121, "+", root3_F631, "<=", 1);
 		excludesroot2_F121_root2_F121.setName(Utilities.EXCLUDES_CMC);
 		solver.post(excludesroot2_F121_root2_F121);
@@ -15360,9 +15361,9 @@ public class CoCoModelDefault {
 		Constraint requiresroot4_F414_root2_F380 = IntConstraintFactory.arithm(root4_F414, "<=", root2_F380);
 		requiresroot4_F414_root2_F380.setName(Utilities.REQUIRES_CMC);
 		solver.post(requiresroot4_F414_root2_F380);
-		Constraint excludesroot3_F609_root3_F609 = IntConstraintFactory.arithm(root3_F609, "+", root5_F86, "<=", 1);
-		excludesroot3_F609_root3_F609.setName(Utilities.EXCLUDES_CMC);
-		solver.post(excludesroot3_F609_root3_F609);
+		Constraint excludesroot3_F609_root5_F86 = IntConstraintFactory.arithm(root3_F609, "+", root5_F86, "<=", 1);
+		excludesroot3_F609_root5_F86.setName(Utilities.EXCLUDES_CMC);
+		solver.post(excludesroot3_F609_root5_F86);
 		Constraint requiresroot4_F68_root5_F485 = IntConstraintFactory.arithm(root4_F68, "<=", root5_F485);
 		requiresroot4_F68_root5_F485.setName(Utilities.REQUIRES_CMC);
 		solver.post(requiresroot4_F68_root5_F485);
@@ -15399,12 +15400,12 @@ public class CoCoModelDefault {
 		Constraint requiresroot4_F188_root5_F297 = IntConstraintFactory.arithm(root4_F188, "<=", root5_F297);
 		requiresroot4_F188_root5_F297.setName(Utilities.REQUIRES_CMC);
 		solver.post(requiresroot4_F188_root5_F297);
-		Constraint excludesroot2_F477_root2_F477 = IntConstraintFactory.arithm(root2_F477, "+", root5_root, "<=", 1);
-		excludesroot2_F477_root2_F477.setName(Utilities.EXCLUDES_CMC);
-		solver.post(excludesroot2_F477_root2_F477);
-		Constraint excludesroot2_F415_root2_F415 = IntConstraintFactory.arithm(root2_F415, "+", root3_F216, "<=", 1);
-		excludesroot2_F415_root2_F415.setName(Utilities.EXCLUDES_CMC);
-		solver.post(excludesroot2_F415_root2_F415);
+		Constraint excludesroot2_F477_root5_root = IntConstraintFactory.arithm(root2_F477, "+", root5_root, "<=", 1);
+		excludesroot2_F477_root5_root.setName(Utilities.EXCLUDES_CMC);
+		solver.post(excludesroot2_F477_root5_root);
+		Constraint excludesroot2_F415_root3_F216 = IntConstraintFactory.arithm(root2_F415, "+", root3_F216, "<=", 1);
+		excludesroot2_F415_root3_F216.setName(Utilities.EXCLUDES_CMC);
+		solver.post(excludesroot2_F415_root3_F216);
 		Constraint requiresroot4_F622_root1_F134 = IntConstraintFactory.arithm(root4_F622, "<=", root1_F134);
 		requiresroot4_F622_root1_F134.setName(Utilities.REQUIRES_CMC);
 		solver.post(requiresroot4_F622_root1_F134);
@@ -15522,9 +15523,9 @@ public class CoCoModelDefault {
 		Constraint requiresroot2_F593_root5_F560 = IntConstraintFactory.arithm(root2_F593, "<=", root5_F560);
 		requiresroot2_F593_root5_F560.setName(Utilities.REQUIRES_CMC);
 		solver.post(requiresroot2_F593_root5_F560);
-		Constraint excludesroot3_F402_root3_F402 = IntConstraintFactory.arithm(root3_F402, "+", root4_F27, "<=", 1);
-		excludesroot3_F402_root3_F402.setName(Utilities.EXCLUDES_CMC);
-		solver.post(excludesroot3_F402_root3_F402);
+		Constraint excludesroot3_F402_root4_F27 = IntConstraintFactory.arithm(root3_F402, "+", root4_F27, "<=", 1);
+		excludesroot3_F402_root4_F27.setName(Utilities.EXCLUDES_CMC);
+		solver.post(excludesroot3_F402_root4_F27);
 		Constraint requiresroot5_F626_root4_F625 = IntConstraintFactory.arithm(root5_F626, "<=", root4_F625);
 		requiresroot5_F626_root4_F625.setName(Utilities.REQUIRES_CMC);
 		solver.post(requiresroot5_F626_root4_F625);
@@ -15558,9 +15559,9 @@ public class CoCoModelDefault {
 		Constraint requiresroot4_F523_root3_F190 = IntConstraintFactory.arithm(root4_F523, "<=", root3_F190);
 		requiresroot4_F523_root3_F190.setName(Utilities.REQUIRES_CMC);
 		solver.post(requiresroot4_F523_root3_F190);
-		Constraint excludesroot4_F72_root4_F72 = IntConstraintFactory.arithm(root4_F72, "+", root2_F313, "<=", 1);
-		excludesroot4_F72_root4_F72.setName(Utilities.EXCLUDES_CMC);
-		solver.post(excludesroot4_F72_root4_F72);
+		Constraint excludesroot4_F72_root2_F313 = IntConstraintFactory.arithm(root4_F72, "+", root2_F313, "<=", 1);
+		excludesroot4_F72_root2_F313.setName(Utilities.EXCLUDES_CMC);
+		solver.post(excludesroot4_F72_root2_F313);
 		Constraint excludesroot1_F177_root1_F177 = IntConstraintFactory.arithm(root1_F177, "+", root3_F516, "<=", 1);
 		excludesroot1_F177_root1_F177.setName(Utilities.EXCLUDES_CMC);
 		solver.post(excludesroot1_F177_root1_F177);
@@ -15646,9 +15647,7 @@ public class CoCoModelDefault {
 		System.out.println("Total time: " + (end - start));
 	}
 	
-	private static void initializeVars(){
-		int contFeatures = 3200;
-			
+	private static void initializeVars(){		
 		root1_root = (BoolVar) VariableFactory.fixed("feature_root1_root", 1, solver);
 		root1_F1 = VariableFactory.bool("feature_root1_F1", solver);
 		root1_F2 = VariableFactory.bool("feature_root1_F2", solver);
