@@ -23,7 +23,7 @@ import searchStrategies.FMVarSelectorBiVarArithmetic;
 import searchStrategies.FMVarSelectorMorePercInstVars;
 import searchStrategies.Utilities;
 
-public class CoCoModelHeuristic1_10 {
+public class CoCoModelHeuristic2_10 {
 	private static Solver solver;
 	private static BoolVar root1_root;
 	private static BoolVar root1_F1;
