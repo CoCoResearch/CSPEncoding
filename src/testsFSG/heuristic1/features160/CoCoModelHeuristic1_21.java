@@ -1,5 +1,5 @@
 
-package testsFSG.defaul.features160;
+package testsFSG.heuristic1.features160;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,15 +14,18 @@ import org.chocosolver.solver.constraints.nary.cnf.LogOp;
 import org.chocosolver.solver.search.loop.monitors.SMF;
 import org.chocosolver.solver.search.loop.monitors.SearchMonitorFactory;
 import org.chocosolver.solver.search.strategy.IntStrategyFactory;
+import org.chocosolver.solver.search.strategy.selectors.values.IntDomainMin;
 import org.chocosolver.solver.search.strategy.strategy.IntStrategy;
 import org.chocosolver.solver.trace.Chatterbox;
 import org.chocosolver.solver.variables.BoolVar;
 import org.chocosolver.solver.variables.IntVar;
 import org.chocosolver.solver.variables.Variable;
 import org.chocosolver.solver.variables.VariableFactory;
+
+import searchStrategies.FMVarSelectorMorePercInstVars;
 import searchStrategies.Utilities;
 
-public class CoCoModelDefault21 {
+public class CoCoModelHeuristic1_21 {
 	private static Solver solver;
 	private static BoolVar root1_root;
 	private static BoolVar root1_F1;
@@ -2399,6 +2402,17 @@ public class CoCoModelDefault21 {
 		solver.post(IntConstraintFactory.sum(varsAtribute0, totalAtribute0));
 		IntVar totalAtribute1 = VariableFactory.bounded("totalAtribute1", -1000000, 0, solver);
 		solver.post(IntConstraintFactory.sum(varsAtribute1, totalAtribute1));
+		
+		IntVar[] featureVars = getFeatureVars(solver, contFeatures);
+		IntVar[] attributeVars = getAttributeVars(solver);
+		IntVar[] totalVars = new IntVar[2];
+		totalVars[0] = totalAtribute0;
+		totalVars[1] = totalAtribute1;
+		
+		IntStrategy strategy1 = IntStrategyFactory.custom(new FMVarSelectorMorePercInstVars(), IntStrategyFactory.max_value_selector(), featureVars);
+		IntStrategy strategy2 = IntStrategyFactory.custom(IntStrategyFactory.minDomainSize_var_selector(), new IntDomainMin(), attributeVars);
+		IntStrategy strategy3 = IntStrategyFactory.custom(IntStrategyFactory.minDomainSize_var_selector(), new IntDomainMin(), totalVars);
+		solver.set(IntStrategyFactory.sequencer(strategy1, IntStrategyFactory.domOverWDeg(featureVars, 1)), strategy2, strategy3);
 		
 		SearchMonitorFactory.limitSolution(solver, 1000);
 		//Chatterbox.showSolutions(solver);
@@ -5227,6 +5241,37 @@ public class CoCoModelDefault21 {
 		featureAttrAtribute0.put("root3_F8", VariableFactory.enumerated("root3_F8Atribute0", new int[]{0, 29}, solver));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root3_F8, "=", 0), IntConstraintFactory.arithm(featureAttrAtribute0.get("root3_F8"), "=", 0));
 		LogicalConstraintFactory.ifThen(IntConstraintFactory.arithm(root3_F8, "=", 1), IntConstraintFactory.arithm(featureAttrAtribute0.get("root3_F8"), "!=", 0));
+	}
+	
+	private static IntVar[] getFeatureVars(Solver solver, int contFeatures){
+		IntVar[] featureVars = new IntVar[contFeatures];
+		Variable[] varsSolver = solver.getVars();
+		int index = 0;
+		for(int i = 0; i < varsSolver.length; i++) {
+			Variable current = varsSolver[i];
+			if(current.getName().startsWith("feature_")) {
+				featureVars[index] = (IntVar) current;
+				index++;
+			}
+		}
+		
+		return featureVars;
+	}
+	
+	private static IntVar[] getAttributeVars(Solver solver){
+		IntVar[] attributeVars;
+		List<IntVar> vars = new ArrayList<IntVar>();
+		Variable[] varsSolver = solver.getVars();
+		
+		for(int i = 0; i < varsSolver.length; i++) {
+			Variable current = varsSolver[i];
+			if(current.getName().startsWith("root")) {
+				vars.add((IntVar) current);
+			}
+		}
+		
+		attributeVars = vars.toArray(new IntVar[vars.size()]);
+		return attributeVars;
 	}
 }
 
