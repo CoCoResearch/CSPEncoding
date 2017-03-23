@@ -27,7 +27,7 @@ import searchStrategies.Utilities;
 
 public class CoCoModelHeuristic3_0 {
 	public static void main(String[] args) {
-Solver solver = new Solver();
+		Solver solver = new Solver();
 		
 		//--------------------------------------------
 		//Features
